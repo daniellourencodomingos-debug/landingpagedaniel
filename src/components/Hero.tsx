@@ -1,7 +1,7 @@
 import { motion, type Variants } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, MessageCircle } from 'lucide-react'
 import { WHATSAPP_URL } from '../lib/contact'
-import danielPortrait from '../assets/daniel-portrait.jpg'
+import danielPortrait from '../assets/daniel-portrait-glow.jpg'
 
 const container: Variants = {
   hidden: {},
@@ -112,7 +112,7 @@ export default function Hero() {
           className="relative order-first mx-auto w-full max-w-[15rem] sm:max-w-xs lg:order-last lg:max-w-sm"
         >
           <div
-            className="absolute inset-0 -z-10 opacity-70 blur-3xl"
+            className="absolute inset-0 -z-10 opacity-50 blur-3xl"
             style={{ background: 'radial-gradient(ellipse 70% 70% at 50% 40%, #7c3aed, transparent 70%)' }}
             aria-hidden="true"
           />
@@ -122,9 +122,11 @@ export default function Hero() {
             className="relative aspect-[3/4] w-full object-cover"
             style={{
               maskImage:
-                'radial-gradient(ellipse 82% 90% at 50% 42%, black 62%, rgba(0,0,0,0.7) 80%, transparent 100%)',
+                'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%)',
+              maskComposite: 'intersect',
               WebkitMaskImage:
-                'radial-gradient(ellipse 82% 90% at 50% 42%, black 62%, rgba(0,0,0,0.7) 80%, transparent 100%)',
+                'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%)',
+              WebkitMaskComposite: 'source-in',
             }}
             width={864}
             height={1184}
