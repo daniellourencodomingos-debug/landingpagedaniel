@@ -106,27 +106,29 @@ export default function Hero() {
           </motion.dl>
         </div>
 
-        {/* Retrato — gerado com IA sobre o fundo roxo/azul da identidade */}
-        <motion.div variants={item} className="relative mx-auto hidden w-full max-w-sm lg:block">
+        {/* Retrato — gerado com IA sobre o fundo roxo/azul da identidade, solto (sem moldura), como um recorte flutuando sobre o fundo */}
+        <motion.div
+          variants={item}
+          className="relative order-first mx-auto w-full max-w-[15rem] sm:max-w-xs lg:order-last lg:max-w-sm"
+        >
           <div
-            className="absolute -inset-6 -z-10 rounded-[2.5rem] opacity-60 blur-2xl"
-            style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #4f7dfa 100%)' }}
+            className="absolute inset-0 -z-10 opacity-70 blur-3xl"
+            style={{ background: 'radial-gradient(ellipse 70% 70% at 50% 40%, #7c3aed, transparent 70%)' }}
             aria-hidden="true"
           />
-          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--color-border-strong)] shadow-2xl">
-            <img
-              src={danielPortrait}
-              alt="Retrato de Daniel Lourenço Domingos"
-              className="aspect-[3/4] w-full object-cover"
-              width={864}
-              height={1184}
-            />
-            <div
-              className="absolute inset-0"
-              style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(8,8,13,0.55) 100%)' }}
-              aria-hidden="true"
-            />
-          </div>
+          <img
+            src={danielPortrait}
+            alt="Retrato de Daniel Lourenço Domingos"
+            className="relative aspect-[3/4] w-full object-cover"
+            style={{
+              maskImage:
+                'radial-gradient(ellipse 82% 90% at 50% 42%, black 62%, rgba(0,0,0,0.7) 80%, transparent 100%)',
+              WebkitMaskImage:
+                'radial-gradient(ellipse 82% 90% at 50% 42%, black 62%, rgba(0,0,0,0.7) 80%, transparent 100%)',
+            }}
+            width={864}
+            height={1184}
+          />
           <svg viewBox="0 0 300 300" className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)]" aria-hidden="true">
             <defs>
               <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
