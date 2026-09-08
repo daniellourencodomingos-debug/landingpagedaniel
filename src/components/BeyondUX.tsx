@@ -23,8 +23,10 @@ const carouselImages = [
   carouselSlide07,
 ]
 
+const motionVideoSrc = './videos/motion-creative.mp4'
+
 export default function BeyondUX() {
-  const videoRef = useAutoplayVideo<HTMLVideoElement>()
+  const videoRef = useAutoplayVideo<HTMLVideoElement>(motionVideoSrc)
 
   return (
     <section className="relative py-24" aria-label="Outras frentes: motion, mídias sociais e IA">
@@ -49,13 +51,12 @@ export default function BeyondUX() {
               <video
                 ref={videoRef}
                 className="aspect-video w-full object-cover"
-                src="./videos/motion-creative.mp4"
                 poster={motionPoster}
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
+                preload="none"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-5">
                 <p className="flex items-center gap-1.5 text-xs font-medium text-white/70">

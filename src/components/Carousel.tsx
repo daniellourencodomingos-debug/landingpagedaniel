@@ -41,6 +41,8 @@ export default function Carousel({ images, alt, framed = true }: CarouselProps) 
             if (info.offset.x < -60) go(index + 1)
             else if (info.offset.x > 60) go(index - 1)
           }}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full cursor-grab object-cover active:cursor-grabbing"
         />
       </AnimatePresence>

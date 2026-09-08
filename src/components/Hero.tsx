@@ -119,6 +119,8 @@ export default function Hero() {
           <img
             src={danielPortrait}
             alt="Retrato de Daniel Lourenço Domingos"
+            fetchPriority="high"
+            decoding="async"
             className="relative aspect-[3/4] w-full object-cover"
             style={{
               maskImage:
