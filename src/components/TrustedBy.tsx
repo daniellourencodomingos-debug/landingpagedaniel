@@ -6,6 +6,7 @@ const CLIENTS = [
   'Grupo Bioclean',
   'EXO',
   'Inforcomp',
+  'Globo',
 ]
 
 /**
