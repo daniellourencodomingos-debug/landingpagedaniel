@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Link2, ExternalLink, Send, CheckCircle2 } from 'lucide-react'
+import { Mail, Link2, ExternalLink, Send, CheckCircle2, MessageCircle } from 'lucide-react'
 import RevealOnScroll from './RevealOnScroll'
+import { WHATSAPP_URL } from '../lib/contact'
 
 const EMAIL = 'danielgnr1@hotmail.com'
 const LINKEDIN = 'https://www.linkedin.com/in/daniel-lourenço-domingos-85045810a'
@@ -53,6 +54,19 @@ export default function Contact() {
             </p>
 
             <div className="mt-9 space-y-3">
+              {/* Contato principal — respondido diretamente pelo WhatsApp */}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between gap-3 rounded-xl border border-[var(--color-accent-2)]/40 bg-[var(--color-accent-2)]/10 px-4 py-3.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-accent-2)]/70"
+              >
+                <span className="flex items-center gap-3">
+                  <MessageCircle size={18} className="text-[var(--color-accent-2)]" />
+                  Chamar no WhatsApp
+                </span>
+                <ExternalLink size={14} className="text-[var(--color-text-faint)]" />
+              </a>
               <a
                 href={`mailto:${EMAIL}`}
                 className="flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3.5 text-sm text-[var(--color-text)] transition-colors hover:border-[var(--color-border-strong)]"

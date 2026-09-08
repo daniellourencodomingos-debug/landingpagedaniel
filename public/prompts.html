@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#08080d" />
+    <title>Prompts de IA — Daniel Lourenço Domingos</title>
+    <meta name="description" content="Biblioteca de prompts de IA de Daniel Lourenço Domingos — imagens, vídeos e animações. Em construção." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #08080d;
+        --surface: #12121c;
+        --border: rgba(245, 245, 255, 0.1);
+        --text: #f5f5f7;
+        --text-muted: #a1a1b3;
+        --accent: #8b7cfa;
+        --accent-2: #4f7dfa;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        padding: 1.5rem;
+      }
+      .card {
+        max-width: 30rem;
+        text-align: center;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        border-radius: 1.5rem;
+        padding: 3rem 2.25rem;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.9rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.75rem;
+        background: linear-gradient(100deg, #b9aefc, #8b7cfa 40%, #4f7dfa 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      p {
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0 0 1.75rem;
+      }
+      a.back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--text);
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 0.65rem 1.3rem;
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+      a.back:hover { border-color: rgba(245, 245, 255, 0.22); }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <span class="eyebrow">Em construção</span>
+      <h1>Biblioteca de Prompts</h1>
+      <p>
+        Estou organizando aqui os prompts de imagem, vídeo e animação com IA que uso no dia a
+        dia — alguns grátis, outros à venda. Volte em breve.
+      </p>
+      <a class="back" href="./">← Voltar ao portfólio</a>
+    </div>
+  </body>
+</html>

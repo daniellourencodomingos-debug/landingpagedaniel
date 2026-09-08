@@ -1,5 +1,7 @@
 import { motion, type Variants } from 'framer-motion'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, MessageCircle } from 'lucide-react'
+import { WHATSAPP_URL } from '../lib/contact'
+import danielPortrait from '../assets/daniel-portrait.jpg'
 
 const container: Variants = {
   hidden: {},
@@ -78,12 +80,15 @@ export default function Hero() {
               Ver serviços
               <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
-            <button
-              onClick={() => scrollTo('contato')}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] px-6 py-3.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface)]"
             >
-              Fale comigo
-            </button>
+              <MessageCircle size={16} />
+              Fale no WhatsApp
+            </a>
           </motion.div>
 
           <motion.dl variants={item} className="mt-14 grid max-w-md grid-cols-3 gap-6">
@@ -101,56 +106,47 @@ export default function Hero() {
           </motion.dl>
         </div>
 
-        {/* Visual abstrato — evita depender de foto/logo externos, mantém o estilo
-            fino e geométrico referenciado (Linear/Vercel/Stripe) */}
-        <motion.div variants={item} className="relative mx-auto hidden aspect-square w-full max-w-md lg:block" aria-hidden="true">
-          <div className="absolute inset-0 rounded-[2.5rem] border border-[var(--color-border)] bg-[var(--color-surface)]/40 backdrop-blur-sm" />
-          <svg viewBox="0 0 300 300" className="absolute inset-0 h-full w-full p-10">
+        {/* Retrato — gerado com IA sobre o fundo roxo/azul da identidade */}
+        <motion.div variants={item} className="relative mx-auto hidden w-full max-w-sm lg:block">
+          <div
+            className="absolute -inset-6 -z-10 rounded-[2.5rem] opacity-60 blur-2xl"
+            style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #4f7dfa 100%)' }}
+            aria-hidden="true"
+          />
+          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--color-border-strong)] shadow-2xl">
+            <img
+              src={danielPortrait}
+              alt="Retrato de Daniel Lourenço Domingos"
+              className="aspect-[3/4] w-full object-cover"
+              width={864}
+              height={1184}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(8,8,13,0.55) 100%)' }}
+              aria-hidden="true"
+            />
+          </div>
+          <svg viewBox="0 0 300 300" className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)]" aria-hidden="true">
             <defs>
               <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stopColor="#8b7cfa" />
                 <stop offset="100%" stopColor="#4f7dfa" />
               </linearGradient>
             </defs>
-            <circle cx="150" cy="150" r="120" fill="none" stroke="var(--color-border-strong)" strokeWidth="1" />
-            <circle cx="150" cy="150" r="90" fill="none" stroke="var(--color-border-strong)" strokeWidth="1" />
             <motion.circle
               cx="150"
               cy="150"
-              r="120"
+              r="145"
               fill="none"
               stroke="url(#ring)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeDasharray="180 600"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
-              style={{ transformOrigin: '150px 150px' }}
-            />
-            <motion.circle
-              cx="150"
-              cy="150"
-              r="90"
-              fill="none"
-              stroke="var(--color-accent)"
               strokeWidth="1.5"
               strokeLinecap="round"
-              strokeDasharray="90 500"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
+              strokeDasharray="120 700"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
               style={{ transformOrigin: '150px 150px' }}
             />
-            <text
-              x="150"
-              y="162"
-              textAnchor="middle"
-              fontSize="42"
-              fontWeight="600"
-              fill="var(--color-text)"
-              fontFamily="Inter, sans-serif"
-            >
-              DLD<tspan fill="var(--color-accent)">.</tspan>
-            </text>
           </svg>
         </motion.div>
       </motion.div>

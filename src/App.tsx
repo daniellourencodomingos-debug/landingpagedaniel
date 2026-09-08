@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import TrustedBy from './components/TrustedBy'
 import About from './components/About'
 import Services from './components/Services'
+import BeyondUX from './components/BeyondUX'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -23,6 +24,7 @@ export default function App() {
         <TrustedBy />
         <About />
         <Services />
+        <BeyondUX />
         <Contact />
       </main>
       <Footer />
