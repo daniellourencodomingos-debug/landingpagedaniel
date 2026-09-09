@@ -1,30 +1,13 @@
 import { motion, type Variants } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, MessageCircle } from 'lucide-react'
 import { WHATSAPP_URL } from '../lib/contact'
-import danielPortrait from '../assets/daniel-portrait-cutout.png'
+import danielPortrait from '../assets/daniel-portrait-hero.jpg'
 
-/**
- * Cores do efeito "tech" (rim light + trilhas de circuito) atrás do
- * retrato. Tudo aqui é CSS puro sobre um PNG com fundo transparente —
- * para editar o efeito depois, basta ajustar estas constantes (ou as
- * classes/valores usados em RIM_LIGHT_FILTER e no <svg> de circuito
- * logo abaixo), sem precisar gerar uma nova imagem.
- */
-const RIM_LIGHT_MAGENTA = '#ff2f6d'
+// Glow ambiente atrás da foto, nas mesmas cores do próprio fundo da imagem
+// (roxo à esquerda / azul à direita), só pra suavizar a transição com o
+// fundo da seção — a foto já vem com sua própria atmosfera "pronta".
+const RIM_LIGHT_MAGENTA = '#7c3aed'
 const RIM_LIGHT_CYAN = '#22d3ee'
-const RIM_LIGHT_FILTER = [
-  `drop-shadow(-10px 2px 22px ${RIM_LIGHT_MAGENTA}99)`,
-  `drop-shadow(10px 2px 22px ${RIM_LIGHT_CYAN}99)`,
-  `drop-shadow(0 14px 30px rgba(0,0,0,0.55))`,
-].join(' ')
-
-// Ladrilho 46x46 das "trilhas de circuito" atrás do retrato, repetido como
-// background-image (ver comentário mais abaixo sobre o porquê do formato).
-const CIRCUIT_TILE_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46">
-  <path d="M0 23h12m0 0a4 4 0 0 0 4 4h6m0 0v11m0-11a4 4 0 0 1 4-4h12M23 0v12m0 0a4 4 0 0 1-4 4H8" fill="none" stroke="#8b9dfa" stroke-width="1" stroke-linecap="round" />
-  <circle cx="12" cy="23" r="1.6" fill="#8b9dfa" />
-  <circle cx="23" cy="12" r="1.6" fill="#8b9dfa" />
-</svg>`
 
 const container: Variants = {
   hidden: {},
@@ -63,7 +46,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="container-page grid items-center gap-14 py-24 lg:grid-cols-[1.1fr_0.9fr] lg:py-0"
+        className="container-page grid items-center gap-14 py-24 lg:grid-cols-[1fr_1fr] lg:py-0"
       >
         <div>
           <motion.div
@@ -130,39 +113,17 @@ export default function Hero() {
           </motion.dl>
         </div>
 
-        {/* Retrato — recorte PNG com fundo transparente; o clima "tech" (luz de
-            borda magenta/ciano + trilhas de circuito) é feito só em CSS/SVG,
-            então dá pra ajustar cores e intensidade aqui no código sem
-            precisar gerar uma imagem nova. */}
+        {/* Retrato — foto já com fundo/clima próprios (glow roxo/azul); aqui
+            só arredonda os cantos e soma um glow bem sutil atrás pra
+            suavizar a transição com o fundo da seção. */}
         <motion.div
           variants={item}
-          className="relative isolate order-first mx-auto w-full max-w-[11rem] sm:max-w-[13rem] lg:order-last lg:max-w-[14.5rem]"
+          className="relative isolate order-first mx-auto w-full max-w-[19rem] sm:max-w-sm lg:order-last lg:max-w-[26rem]"
         >
-          {/* Glow ambiente atrás de tudo, nas mesmas cores do rim light */}
           <div
-            className="absolute -inset-16 -z-20 opacity-60 blur-3xl"
+            className="absolute -inset-8 -z-10 opacity-50 blur-3xl"
             style={{
-              background: `radial-gradient(ellipse 30% 32% at 32% 38%, ${RIM_LIGHT_MAGENTA}, transparent 55%), radial-gradient(ellipse 30% 32% at 68% 55%, ${RIM_LIGHT_CYAN}, transparent 55%)`,
-            }}
-            aria-hidden="true"
-          />
-
-          {/* Trilhas de circuito — ladrilho SVG repetido como background-image de
-              um <div>, com mask-image em radial-gradient pra sumir gradualmente
-              nas bordas (sem nenhuma "caixa" visível, nem clara nem escura —
-              o fade vai até opacidade zero, então o brilho/grão do fundo da
-              seção aparece por trás normalmente). Para editar o desenho da
-              trilha, troque o SVG dentro de CIRCUIT_TILE_SVG; para editar o
-              raio/posição do fade, ajuste o gradiente do maskImage abaixo. */}
-          <div
-            className="pointer-events-none absolute -inset-16 -z-10 h-[calc(100%+8rem)] w-[calc(100%+8rem)] opacity-70"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(CIRCUIT_TILE_SVG)}")`,
-              backgroundSize: '46px 46px',
-              maskImage:
-                'radial-gradient(ellipse 38% 38% at 50% 42%, black 15%, transparent 62%)',
-              WebkitMaskImage:
-                'radial-gradient(ellipse 38% 38% at 50% 42%, black 15%, transparent 62%)',
+              background: `radial-gradient(ellipse 40% 45% at 28% 45%, ${RIM_LIGHT_MAGENTA}, transparent 60%), radial-gradient(ellipse 40% 45% at 75% 55%, ${RIM_LIGHT_CYAN}, transparent 60%)`,
             }}
             aria-hidden="true"
           />
@@ -172,37 +133,10 @@ export default function Hero() {
             alt="Retrato de Daniel Lourenço Domingos"
             fetchPriority="high"
             decoding="async"
-            className="relative block w-full"
-            style={{
-              filter: RIM_LIGHT_FILTER,
-              maskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
-            }}
-            width={302}
-            height={360}
+            className="relative block w-full rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+            width={1652}
+            height={952}
           />
-
-          <svg viewBox="0 0 300 300" className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)]" aria-hidden="true">
-            <defs>
-              <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor={RIM_LIGHT_MAGENTA} />
-                <stop offset="100%" stopColor={RIM_LIGHT_CYAN} />
-              </linearGradient>
-            </defs>
-            <motion.circle
-              cx="150"
-              cy="150"
-              r="145"
-              fill="none"
-              stroke="url(#ring)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeDasharray="120 700"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
-              style={{ transformOrigin: '150px 150px' }}
-            />
-          </svg>
         </motion.div>
       </motion.div>
 

@@ -23,9 +23,9 @@ const SERVICES = [
   },
   {
     icon: Sparkles,
-    title: 'Motion & Microinterações',
+    title: 'Motion & Prototipação Interativa',
     description:
-      'Animações que comunicam estado e guiam a atenção — sem ruído, sem prejudicar performance.',
+      'Protótipos navegáveis e animações que comunicam a ideia com clareza — do wireframe ao vídeo de apresentação.',
   },
   {
     icon: Bot,
