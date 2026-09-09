@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import TrustedBy from './components/TrustedBy'
 import About from './components/About'
 import Services from './components/Services'
+import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -32,6 +33,7 @@ export default function App() {
         <Suspense fallback={null}>
           <BeyondUX />
         </Suspense>
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

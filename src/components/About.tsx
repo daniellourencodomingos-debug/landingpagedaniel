@@ -62,6 +62,11 @@ export default function About() {
                 e design systems, unindo rigor metodológico (heurísticas de Nielsen, Leis de UX)
                 a um olhar estético clean, moderno e consistente.
               </p>
+              <p>
+                Uso Inteligência Artificial no dia a dia como acelerador criativo — da geração e
+                tratamento de imagens à produção de motion — sem perder de vista o que realmente
+                importa: a experiência de quem usa o produto.
+              </p>
             </div>
 
             <div className="mt-8">

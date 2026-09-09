@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Compass, LayoutGrid, FlaskConical, Sparkles } from 'lucide-react'
+import { Compass, LayoutGrid, FlaskConical, Sparkles, Bot } from 'lucide-react'
 import RevealOnScroll from './RevealOnScroll'
 
 const SERVICES = [
@@ -26,6 +26,12 @@ const SERVICES = [
     title: 'Motion & Microinterações',
     description:
       'Animações que comunicam estado e guiam a atenção — sem ruído, sem prejudicar performance.',
+  },
+  {
+    icon: Bot,
+    title: 'Design com Inteligência Artificial',
+    description:
+      'IA generativa aplicada ao fluxo criativo — geração e tratamento de imagens, variações de peças e aceleração de entregas sem abrir mão de consistência de marca.',
   },
 ]
 
@@ -54,7 +60,7 @@ export default function Services() {
         </RevealOnScroll>
 
         {/* Grid 2x2: Lei de Prégnância — formas simples e repetíveis */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <RevealOnScroll key={s.title} delay={i * 0.08}>
               <motion.article

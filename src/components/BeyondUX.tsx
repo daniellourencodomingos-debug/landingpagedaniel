@@ -3,8 +3,14 @@ import { Target, Sparkles, ArrowUpRight, Film, GalleryHorizontal } from 'lucide-
 import RevealOnScroll from './RevealOnScroll'
 import Carousel from './Carousel'
 import PhoneMockup from './PhoneMockup'
+import InstagramEmbed from './InstagramEmbed'
 import { useAutoplayVideo } from '../lib/useAutoplayVideo'
 import motionPoster from '../assets/motion-creative-poster.jpg'
+
+// Reel de animação feita com IA para petshop — embed oficial do Instagram
+// (ver comentário em InstagramEmbed.tsx sobre por que não é um <video> nativo).
+// Pra trocar por outro reel/post, é só atualizar esta URL.
+const PETSHOP_REEL_URL = 'https://www.instagram.com/reel/DURdWweDwN0/'
 import carouselSlide01 from '../assets/carousel-exo/slide-01.jpg'
 import carouselSlide02 from '../assets/carousel-exo/slide-02.jpg'
 import carouselSlide03 from '../assets/carousel-exo/slide-03.jpg'
@@ -44,10 +50,13 @@ export default function BeyondUX() {
           </p>
         </RevealOnScroll>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch">
-          {/* Peça de motion — freela em After Effects para agência de marketing */}
+        <div className="mt-10 grid gap-6 lg:grid-cols-3 lg:items-start">
+          {/* Peça de motion — freela em After Effects para agência de marketing.
+              Mesma moldura (cartão preto, cantos arredondados, barra de legenda
+              com ícone de filme) usada no reel de IA ao lado, pra ficarem com
+              a cara de uma "dupla" mesmo vindo de formatos diferentes. */}
           <RevealOnScroll delay={0.05}>
-            <div className="group relative h-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black">
+            <div className="group relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black">
               <video
                 ref={videoRef}
                 className="aspect-video w-full object-cover"
@@ -67,8 +76,25 @@ export default function BeyondUX() {
             </div>
           </RevealOnScroll>
 
-          {/* Mídias sociais com estratégia */}
+          {/* Animação para petshop feita com IA — embed do Instagram (ver
+              PETSHOP_REEL_URL acima pra trocar o reel). Por vir direto do
+              Instagram, o cartão interno mantém a cara padrão deles; a
+              moldura e a legenda por fora seguem o mesmo padrão do vídeo
+              de motion ao lado. */}
           <RevealOnScroll delay={0.1}>
+            <div className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-black">
+              <InstagramEmbed url={PETSHOP_REEL_URL} />
+              <div className="border-t border-[var(--color-border)] bg-black p-5">
+                <p className="flex items-center gap-1.5 text-xs font-medium text-white/70">
+                  <Film size={13} />
+                  Animação para petshop · feita com IA
+                </p>
+              </div>
+            </div>
+          </RevealOnScroll>
+
+          {/* Mídias sociais com estratégia */}
+          <RevealOnScroll delay={0.15}>
             <div className="h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
               <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[var(--color-surface-2)] text-[var(--color-primary-2)]">
                 <Target size={20} strokeWidth={1.75} />

@@ -90,9 +90,10 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-text-muted)]"
           >
-            Sou Daniel Lourenço Domingos, UX/UI Designer com mais de 10 anos de trajetória
-            desenhando produtos digitais — de plataformas B2B a marcas de saúde e beleza —
-            com foco em usabilidade, consistência e resultado de negócio.
+            Sou Daniel Lourenço Domingos, UX/UI Designer. Em mais de 10 anos de trajetória —
+            do design gráfico ao produto digital — hoje foco em interfaces para plataformas
+            B2B e marcas de saúde e beleza, unindo usabilidade, consistência e Inteligência
+            Artificial no fluxo de trabalho para entregar resultado de negócio mais rápido.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
